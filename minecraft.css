@@ -1,0 +1,96 @@
+body{
+    display: flex;
+    justify-content: flex-end;
+}
+.game-board{
+    display: grid;
+    width: 100vh;
+    height: 100vh;
+    grid-template-rows: repeat(21, 1fr);
+    grid-template-columns: repeat(21, 1fr);
+    margin-right: 15%;
+}
+.blue{
+    background: skyblue;
+    min-width: 30px;
+    min-height: 30px;
+}
+.green{
+    background: green;
+    min-width: 30px;
+    min-height: 30px;
+}
+.dark-brown{
+    background: darkred;
+    min-width: 30px;
+    min-height: 30px;
+}
+.grey{
+    background: grey;
+    min-width: 30px;
+    min-height: 30px;
+}
+.brown{
+    background: brown;
+    min-width: 30px;
+    min-height: 30px;
+}
+.grass-brown{
+    background: burlywood;
+    min-width: 30px;
+    min-height: 30px;
+}
+.white{
+    background: white;
+    min-width: 30px;
+    min-height: 30px;
+}
+.bag{
+    height: 100v;
+    width: 15%;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.pickaxe{
+    text-align: center;
+    border: 1px solid white;
+    height: 150px;
+    width: 100px;
+    margin: 10px 0;
+    color: red;
+}
+.shovel{
+    text-align: center;
+    border: 1px solid white;
+    height: 150px;
+    width: 100px;
+    margin: 10px 0;
+    color: red;
+}
+.axe{
+    text-align: center;
+    border: 1px solid white;
+    height: 150px;
+    width: 100px;
+    margin: 10px 0;
+    color: red;
+}
+.selected-item{
+    width: 30px;
+    height: 30px;
+    border: 1px solid white;
+    
+}
+.selected-tool{
+    background: blue;
+    border: none;
+}
+.selected-material{
+    border: 1px solid blue;
+    min-width: 30px;
+    min-height: 30px;
+}
