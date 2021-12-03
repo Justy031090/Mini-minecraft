@@ -46,14 +46,37 @@ function addElement(treeEl, i, j, color){
     treeEl.style.gridColumnsStart=j;
     gameBoard.appendChild(treeEl);
 }
+function unselectTool (tool1, tool2){
+    tool1.classList.remove('selected-tool');
+    tool2.classList.remove('selected-tool')
+}
 function selectTool (tool) {
     tool.addEventListener('click', ()=>{
+        if (tool === axe ){
+            unselectTool(shovel, pickaxe )
+        }
+        if (tool === shovel ){
+            unselectTool(axe, pickaxe )
+        }
+        if (tool === pickaxe ){
+            unselectTool(axe, shovel )
+        }
         tool.classList.toggle('selected-tool')
     })
 }
 selectTool(axe)
 selectTool(shovel)
 selectTool(pickaxe)
+
+function dropItem (e, color){
+    if (selectedItem.className === `${color} selected-item selected-material` && e.target.className === 'blue') {
+        e.target.setAttribute('class', `${color}`);
+        selectedItem.classList.remove(`${color}`)
+        selectedItem.setAttribute('class', 'selected-item')
+    }
+    
+}
+
 for (i=0; i<matrix.length; i++){
     for (j=0; j<matrix[i].length; j++){
         let treeEl = document.createElement('div');
@@ -85,16 +108,61 @@ for (i=0; i<matrix.length; i++){
     
 }
 
-gameBoard.addEventListener ('click', function skyClick (e) {
-        if(e.target.className !== 'blue' && e.target.className !== 'white'){
+gameBoard.addEventListener ('click', function pickUp (e) {
+    if((e.target.className === 'green' || e.target.className === "dark-brown" ) && axe.className === 'axe selected-tool'){
+    const newClass = e.target.className
+    selectedItem.setAttribute('class', newClass + ' ' + 'selected-item')
+    e.target.setAttribute('class', 'blue');
+    }
+    if(e.target.className === 'grey' && pickaxe.className === 'pickaxe selected-tool'){
         const newClass = e.target.className
         selectedItem.setAttribute('class', newClass + ' ' + 'selected-item')
         e.target.setAttribute('class', 'blue');
-        }
+    }
+    if((e.target.className === 'grass-brown' || e.target.className === 'brown') && shovel.className === 'shovel selected-tool'){
+        const newClass = e.target.className
+        selectedItem.setAttribute('class', newClass + ' ' + 'selected-item')
+        e.target.setAttribute('class', 'blue');
+    }
+    
 });
 selectedItem.addEventListener('click', function (){
     selectedItem.classList.toggle('selected-material')
+    axe.classList.remove('selected-tool')
+    pickaxe.classList.remove('selected-tool')
+    shovel.classList.remove('selected-tool')
+
 })
 
 
+gameBoard.addEventListener('click', function drop (e){
+    dropItem(e, colors.green)
+    dropItem(e, colors.grey)
+    dropItem(e, colors.darkbrown)
+    dropItem(e, colors.brown)
+    dropItem(e, colors.grass)
+})
+
+
+    gameBoard.addEventListener('click', function (e) {
+        wrongTool(e)
+    })
+
+
+function wrongTool(e) {
+    if ((e.target.className === 'grey' || e.target.className === 'brown' || e.target.className === 'grass-brown') && axe.className === 'axe selected-tool'){
+        axe.style.backgroundColor = 'red';
+        }
+        if ((e.target.className === 'green' || e.target.className === 'grey' || e.target.className === 'grass-brown' || e.target.className === 'dark-brown') && shovel.className === 'shovel selected-tool'){
+            shovel.style.backgroundColor = 'red';
+        }
+        if ((e.target.className === 'green' || e.target.className === 'brown' || e.target.className === 'grass-brown' || e.target.className === 'dark-brown') && pickaxe.className === 'pickaxe selected-tool'){
+            pickaxe.style.backgroundColor = 'red';
+        }
+        setTimeout(function(){
+            axe.style = 'axe';
+            pickaxe.style = 'pickaxe';
+            shovel.style = 'shovel';
+        }, 2000)
+}
 
