@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    
+}
+body{
+    background: skyblue;
 }
 .game{
     display: flex;
@@ -52,7 +54,7 @@
     min-height: 30px;
 }
 .grey{
-    background-image: url('/images/gold.jfif');
+    background-image: url('/images/stone.jfif');
     min-width: 30px;
     min-height: 30px;
 }
@@ -67,7 +69,7 @@
     min-height: 30px;
 }
 .white{
-    background-image: url('/images/rainy-cloud.jfif');
+    background-image: url('/images/rainy-cloud2.jfif');
     min-width: 30px;
     min-height: 30px;
 }
@@ -140,7 +142,7 @@
 }
 .axe:hover,
 .pickaxe:hover,
-.shover:hover,
+.shovel:hover,
 .selected-material:hover{
     cursor: pointer;
 }

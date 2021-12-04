@@ -7,13 +7,13 @@ const shovel = document.querySelector('.shovel');
 const pickaxe = document.querySelector('.pickaxe');
 const start = document.querySelector('.start-btn');
 const logo = document.querySelector('.game');
-const reset = document.querySelector('.reset-btn')
+const reset = document.querySelector('.reset-btn');
 
 
 const matrix = [
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
-    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
+    [0,0,6,6,6,0,0,0,0,0,0,0,0,0,6,6,0,0,0,0,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,0,6,6,0],
+    [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,6,6,6,6,6,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -77,10 +77,10 @@ function dropItem (e, color){
     }
     
 }
+function makingBoard () {
 for (i=0; i<matrix.length; i++){
     for (j=0; j<matrix[i].length; j++){
         let treeEl = document.createElement('div');
-        treeEl.id = 'x:'+ (i+1) + ('-')+ 'y:'+ (j+1);
         switch(matrix[i][j]){
         case 0:
             addElement(treeEl, i, j, colors.blue);
@@ -104,9 +104,11 @@ for (i=0; i<matrix.length; i++){
             addElement(treeEl, i, j, colors.white);
             break;
         }
-    }
+    } 
     
 }
+}
+makingBoard()
 function wrongTool(e) {
     if ((e.target.className === 'grey' || e.target.className === 'brown' || e.target.className === 'grass-brown') && axe.className === 'axe selected-tool'){
         axe.style.transition =  'background-color 800ms ease-in';
@@ -166,39 +168,15 @@ start.addEventListener('click', function (e) {
     bag.classList.add('index-up')
 });
 
-function restart(){
-    for (i=0; i<matrix.length; i++){
-        for (j=0; j<matrix[i].length; j++){
-            let treeEl = document.createElement('div');
-            treeEl.id = 'x:'+ (i+1) + ('-')+ 'y:'+ (j+1);
-            switch(matrix[i][j]){
-            case 0:
-                addElement(treeEl, i, j, colors.blue);
-                break;
-            case 1:
-                addElement(treeEl, i, j, colors.darkbrown);
-                break;
-            case 2:
-                addElement(treeEl, i, j, colors.green);
-                break;
-            case 3:
-                addElement(treeEl, i, j, colors.grey);
-                break;
-            case 4:
-                addElement(treeEl, i, j, colors.grass);
-                break;
-            case 5:
-                addElement(treeEl, i, j, colors.brown);
-                break;
-            case 6:
-                addElement(treeEl, i, j, colors.white);
-                break;
-            }
-        }
-        
-    }
 
+reset.addEventListener('click', function(){
+    removeChildren()
+    });
+
+function removeChildren () {
+    gameBoard.innerHTML = ""
+    makingBoard();
+    unselectTool(axe,pickaxe);
+    unselectTool(shovel, axe);
+    selectedItem.classList.remove('selected-material');
 }
-reset.addEventListener('click', function(e){
-    restart()
-})
