@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
 *{
     margin: 0;
     padding: 0;
@@ -37,6 +38,11 @@ body{
     grid-template-columns: repeat(21, 1fr);
     margin-right: 15%;
     z-index: -2;
+}
+.wall{
+    background-image: url('/images/wall.jfif');
+    min-width: 30px;
+    min-height: 30px;
 }
 .blue{
     background-image: url('/images/rain.jfif');
@@ -92,6 +98,7 @@ body{
 }
 .pickaxe{
     display: flex;
+    flex-direction: column;
     text-align: center;
     border: 1px solid white;
     margin: 10px 0;
@@ -99,9 +106,9 @@ body{
     height: 140px;
     width: 100px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     transition: background-color 0.8s ease-in;
-
+    text-overflow: clip;
 }
 .shovel-background{
     background: url('/images/tools.png') no-repeat -115px 0;
@@ -111,6 +118,7 @@ body{
 }
 .shovel{
     display: flex;
+    flex-direction: column;
     text-align: center;
     border: 1px solid white;
     margin: 10px 0;
@@ -118,7 +126,7 @@ body{
     height: 140px;
     width: 100px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     transition: background-color 0.8s ease-in;
 
 }
@@ -130,6 +138,7 @@ body{
 }
 .axe{
     display: flex;
+    flex-direction: column;
     text-align: center;
     border: 1px solid white;
     margin: 10px 0;
@@ -137,7 +146,7 @@ body{
     height: 140px;
     width: 100px;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     transition: background-color 0.2s ease-in;
 }
 .axe:hover,
@@ -145,6 +154,12 @@ body{
 .shovel:hover,
 .selected-material:hover{
     cursor: pointer;
+}
+.axe-text,
+.pickaxe-text,
+.shovel-text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 0.8rem;
 }
 .selected-item{
     min-width: 30px;

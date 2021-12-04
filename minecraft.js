@@ -131,19 +131,19 @@ function wrongTool(e) {
 }
 function pickUp(e){
 if((e.target.className === 'green' || e.target.className === "dark-brown" ) && axe.className === 'axe selected-tool'){
-    const newClass = e.target.className
-    selectedItem.setAttribute('class', newClass + ' ' + 'selected-item')
+    const newClass = e.target.className + ' ' + 'selected-item'
+    selectedItem.setAttribute('class', newClass)
     e.target.setAttribute('class', 'blue');
     }
     if(e.target.className === 'grey' && pickaxe.className === 'pickaxe selected-tool'){
-        const newClass = e.target.className
-        selectedItem.setAttribute('class', newClass + ' ' + 'selected-item')
+        const newClass = e.target.className + ' ' + 'selected-item'
+        selectedItem.setAttribute('class', newClass)
         e.target.setAttribute('class', 'blue');
     }
     if((e.target.className === 'grass-brown' || e.target.className === 'brown') && shovel.className === 'shovel selected-tool'){
-        const newClass = e.target.className
-        selectedItem.setAttribute('class', newClass + ' ' + 'selected-item')
-        e.target.setAttribute('class', 'blue');
+        const newClass = e.target.className + ' ' + 'selected-item'
+        selectedItem.setAttribute('class', newClass)
+        e.target.setAttribute('class', 'wall');
     }
 }
 selectedItem.addEventListener('click', function (){
