@@ -70,7 +70,7 @@ selectTool(axe)
 selectTool(shovel)
 selectTool(pickaxe)
 function dropItem (e, color){
-    if (selectedItem.className === `${color} selected-item selected-material` && e.target.className === 'blue') {
+    if (selectedItem.className === `${color} selected-item selected-material` && (e.target.className === 'blue' || e.target.className === 'wall')) {
         e.target.setAttribute('class', `${color}`);
         selectedItem.classList.remove(`${color}`)
         selectedItem.setAttribute('class', 'selected-item')
