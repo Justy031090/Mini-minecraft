@@ -178,5 +178,6 @@ function removeChildren () {
     makingBoard();
     unselectTool(axe,pickaxe);
     unselectTool(shovel, axe);
-    selectedItem.classList.remove('selected-material');
+    selectedItem.removeAttribute('class')
+    selectedItem.setAttribute('class', 'selected-item')
 }
