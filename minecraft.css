@@ -1,6 +1,7 @@
 body{
     display: flex;
     justify-content: flex-end;
+    
 }
 .game-board{
     display: grid;
@@ -11,37 +12,37 @@ body{
     margin-right: 15%;
 }
 .blue{
-    background: skyblue;
+    background-image: url('/images/rain.jfif');
     min-width: 30px;
     min-height: 30px;
 }
 .green{
-    background: green;
+    background-image: url('images/leaves2.jpg');
     min-width: 30px;
     min-height: 30px;
 }
 .dark-brown{
-    background: darkred;
+    background-image: url('/images/tree.jpg');
     min-width: 30px;
     min-height: 30px;
 }
 .grey{
-    background: grey;
+    background-image: url('/images/gold.jfif');
     min-width: 30px;
     min-height: 30px;
 }
 .brown{
-    background: brown;
+    background-image: url('/images/soil.jfif');
     min-width: 30px;
     min-height: 30px;
 }
 .grass-brown{
-    background: burlywood;
+    background-image: url('/images/grass.jfif');
     min-width: 30px;
     min-height: 30px;
 }
 .white{
-    background: white;
+    background-image: url('/images/rainy-cloud.jfif');
     min-width: 30px;
     min-height: 30px;
 }
@@ -55,29 +56,62 @@ body{
     flex-direction: column;
 }
 
+.pickaxe-background{
+    background: url('/images/tools.png') no-repeat -179px -27px;
+	background-size: 340px 132px;
+	width: 93px;
+	height: 94px;
+}
 .pickaxe{
+    display: flex;
     text-align: center;
     border: 1px solid white;
-    height: 150px;
-    width: 100px;
     margin: 10px 0;
     color: red;
+    height: 140px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.8s ease-in;
+
+}
+.shovel-background{
+    background: url('/images/tools.png') no-repeat -115px 0;
+	background-size: 340px 132px;
+	width: 44px;
+	height: 132px;
 }
 .shovel{
+    display: flex;
     text-align: center;
     border: 1px solid white;
-    height: 150px;
-    width: 100px;
     margin: 10px 0;
     color: red;
+    height: 140px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.8s ease-in;
+
+}
+.axe-background{
+    background: url('/images/tools.png') no-repeat 0 -3px;
+	background-size: 340px 132px;
+	width: 61px;
+	height: 123px;
 }
 .axe{
+    display: flex;
     text-align: center;
     border: 1px solid white;
-    height: 150px;
-    width: 100px;
     margin: 10px 0;
     color: red;
+    height: 140px;
+    width: 100px;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease-in;
+
 }
 .selected-item{
     width: 30px;
@@ -88,6 +122,7 @@ body{
 .selected-tool{
     background: blue;
     border: none;
+    transition: background-color 0.8s ease-in;
 }
 .selected-material{
     border: 1px solid blue;
