@@ -5,15 +5,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/minecraft.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>Mini-my-minecraft</title>
 </head>
 <body>
-    <div class="game-board"></div>
-    <div class="bag">
-        <div class="pickaxe"><div class="pickaxe-background"></div></div>
-        <div class="shovel"><div class="shovel-background"></div></div>
-        <div class="axe"><div class="axe-background"></div></div>
-        <div class="selected-item" id="selected-item"></div>
+    <button class="start-btn"><i class="fa fa-play-circle">&nbsp;Start</i></button>
+    <div class="game">
+        <div class="game-board"></div>
+        <div class="bag">
+            <div class="pickaxe"><div class="pickaxe-background"></div></div>
+            <div class="shovel"><div class="shovel-background"></div></div>
+            <div class="axe"><div class="axe-background"></div></div>
+            <div class="selected-item" id="selected-item"></div>
+            <button class="reset-btn"><i class="fa fa-refresh"><br>Restart</i></button>
+        </div>
     </div>
     <script src="/minecraft.js"></script>
 </body>

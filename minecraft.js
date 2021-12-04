@@ -1,10 +1,14 @@
 const body = document.querySelector('#body');
 const gameBoard = document.querySelector('.game-board');
 const selectedItem = document.querySelector('#selected-item');
-const bag = document.querySelector('.bag')
-const axe = document.querySelector('.axe')
-const shovel = document.querySelector('.shovel')
-const pickaxe = document.querySelector('.pickaxe')
+const bag = document.querySelector('.bag');
+const axe = document.querySelector('.axe');
+const shovel = document.querySelector('.shovel');
+const pickaxe = document.querySelector('.pickaxe');
+const start = document.querySelector('.start-btn');
+const logo = document.querySelector('.game');
+const reset = document.querySelector('.reset-btn')
+
 
 const matrix = [
     [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0],
@@ -155,4 +159,46 @@ gameBoard.addEventListener('click', function drop (e){
     wrongTool(e)
     pickUp(e)
 })
+start.addEventListener('click', function (e) {
+    logo.style.background = ('none');
+    start.classList.add('hide');
+    gameBoard.classList.add('index-up')
+    bag.classList.add('index-up')
+});
 
+function restart(){
+    for (i=0; i<matrix.length; i++){
+        for (j=0; j<matrix[i].length; j++){
+            let treeEl = document.createElement('div');
+            treeEl.id = 'x:'+ (i+1) + ('-')+ 'y:'+ (j+1);
+            switch(matrix[i][j]){
+            case 0:
+                addElement(treeEl, i, j, colors.blue);
+                break;
+            case 1:
+                addElement(treeEl, i, j, colors.darkbrown);
+                break;
+            case 2:
+                addElement(treeEl, i, j, colors.green);
+                break;
+            case 3:
+                addElement(treeEl, i, j, colors.grey);
+                break;
+            case 4:
+                addElement(treeEl, i, j, colors.grass);
+                break;
+            case 5:
+                addElement(treeEl, i, j, colors.brown);
+                break;
+            case 6:
+                addElement(treeEl, i, j, colors.white);
+                break;
+            }
+        }
+        
+    }
+
+}
+reset.addEventListener('click', function(e){
+    restart()
+})

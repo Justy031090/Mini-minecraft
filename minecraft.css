@@ -1,7 +1,31 @@
-body{
+*{
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    
+}
+.game{
     display: flex;
     justify-content: flex-end;
+    background: url('/images/minecraft_2d.jpg') no-repeat;
+    background-size: cover;
+}
+.start-btn{
+    cursor:grab;
+    background: url('/images/soil.jfif');
+    color: rgba(30, 29, 53, 0.795);
+    border: 1px solid rgb(61, 55, 55);;
+    background-size: cover;   
+    height: 7%;
+    width: 15%;
+    position: absolute;
+    bottom: 15%;
+    left: 42.5%;
+    font-size: 2rem;
+    font-weight: 700;
+    border-radius: 40%;
     
+
 }
 .game-board{
     display: grid;
@@ -10,6 +34,7 @@ body{
     grid-template-rows: repeat(21, 1fr);
     grid-template-columns: repeat(21, 1fr);
     margin-right: 15%;
+    z-index: -2;
 }
 .blue{
     background-image: url('/images/rain.jfif');
@@ -54,6 +79,7 @@ body{
     align-items: center;
     justify-content: flex-start;
     flex-direction: column;
+    z-index: -2;
 }
 
 .pickaxe-background{
@@ -111,21 +137,47 @@ body{
     align-items: center;
     justify-content: center;
     transition: background-color 0.2s ease-in;
-
+}
+.axe:hover,
+.pickaxe:hover,
+.shover:hover,
+.selected-material:hover{
+    cursor: pointer;
 }
 .selected-item{
-    width: 30px;
-    height: 30px;
+    min-width: 30px;
+    min-height: 30px;
     border: 1px solid white;
     
 }
 .selected-tool{
     background: blue;
-    border: none;
+    border: 1px solid transparent;
     transition: background-color 0.8s ease-in;
 }
 .selected-material{
     border: 1px solid blue;
-    min-width: 30px;
-    min-height: 30px;
+    width: 2rem;
+    height: 2rem;
+}
+.reset-btn{
+    background: red;
+    border: .5px solid white;
+    width: 3rem;
+    height: 2rem;
+    margin-top: 5rem;
+    font-weight: 700;
+    cursor: pointer;
+}
+.reset-btn:hover{
+    border: 2px solid blue;
+    filter: brightness(150%);
+    color: white;
+}
+.hide{
+    background: none;
+    visibility: hidden;
+}
+.index-up{
+    z-index: 5;
 }
